@@ -334,7 +334,7 @@
   if (lightbox) {
     const media = $(".lightbox__media", lightbox);
     const cap = $(".lightbox__cap", lightbox);
-    const projects = $$(".project[data-lightbox]");
+    const projects = $$("[data-lightbox]");
     let idx = 0;
     const show = (i) => {
       idx = (i + projects.length) % projects.length;
