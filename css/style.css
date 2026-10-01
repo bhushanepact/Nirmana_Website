@@ -2068,6 +2068,125 @@ body.nav-open .burger span:nth-child(3) {
   }
 }
 
+/* ---------- Project rows (one section per project) ---------- */
+.project-rows {
+  display: grid;
+  gap: clamp(48px, 7vw, 96px);
+}
+.project-row {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+}
+.project-row:nth-child(even) .project-row__media {
+  order: 2;
+}
+.project-row__media {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+}
+.project-row__media img,
+.project-row__media .ph {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-row__media img {
+  transition: transform 1.2s var(--ease);
+}
+.project-row__media:hover img {
+  transform: scale(1.06);
+}
+.project-row__zoom {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(11, 20, 43, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  transition: background 0.4s, transform 0.5s var(--ease);
+}
+.project-row__zoom svg {
+  width: 18px;
+  height: 18px;
+}
+.project-row__media:hover .project-row__zoom {
+  background: var(--gold);
+  transform: scale(1.1);
+}
+.project-row__num {
+  font-family: var(--font-head);
+  font-size: 3.6rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold);
+  display: block;
+}
+.project-row__info .eyebrow {
+  margin-top: 14px;
+}
+.project-row__info h2 {
+  margin-top: 10px;
+  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+}
+.project-row__loc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--grey);
+  letter-spacing: 0.04em;
+}
+.project-row__loc svg {
+  width: 16px;
+  height: 16px;
+  color: var(--gold);
+}
+.project-row__info > p {
+  margin-top: 16px;
+}
+.project-row__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.project-row__tags li {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 14px;
+}
+.project-row.is-hidden {
+  display: none;
+}
+@media (max-width: 900px) {
+  .project-row {
+    grid-template-columns: 1fr;
+  }
+  .project-row:nth-child(even) .project-row__media {
+    order: 0;
+  }
+}
+
 /* ---------- Lightbox ---------- */
 .lightbox {
   position: fixed;
